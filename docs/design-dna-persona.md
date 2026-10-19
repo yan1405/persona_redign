@@ -1,6 +1,6 @@
 # Design DNA — Persona Redesign (referência iStudio)
 
-> **Status:** v1.1 · 19/10/2026 (v1.0 de 18/10/2026, gerada com a skill `design-dna`) · v1.1 corrige a tradução da arquitetura (§1) e restringe o chat ao painel experimental do Agente (§4)
+> **Status:** v1.2 · 19/10/2026 (v1.0 de 18/10/2026, gerada com a skill `design-dna`) · v1.1 corrigiu a tradução da arquitetura (§1) · v1.2 reorienta para **plataforma com agente de IA** (não CRM): agente central, cards em vez de linhas, painéis flutuantes em vez de laterais, seções em vez de abas
 > **Referência:** [Student Career Dashboard | UI/UX Design Case Study 2026 (Behance)](https://www.behance.net/gallery/257051775/Student-Career-Dashboard-UIUX-Design-Case-Study-2026)
 > **Decisões fixadas:** cores = paleta Persona (Indigo + Slate, D-026) · tipografia = da referência (Plus Jakarta Sans + Inter) · Geist/Geist Mono descontinuadas no redesign.
 
@@ -23,11 +23,11 @@ O problema do Persona atual não é a cor — é a arquitetura da informação: 
 
 | Referência (iStudio) | Persona |
 |---|---|
-| Home — tiles de destino | Início — "Bom dia, Yan", faixa de KPIs do Narrative Score e 4 tiles (Diário, Evidências, Persona Live, Artefatos) |
+| Home — tiles de destino | Início — "Bom dia, Yan", **campo do agente "Buscar ou perguntar"** em destaque, FocalCard de briefing, faixa de KPIs do Narrative Score e 4 tiles (Diário, Evidências, Persona Live, Artefatos) |
 | iCAT Journey (card escuro com stepper) | FocalCard "Do score declarado ao observado": Diagnóstico → Primeiro registro → 5 evidências confirmadas → Score observado |
 | Training / Skill sim | Diário (editor livre) e revisão das sugestões da IA |
 | Profile verificado | Biblioteca de Evidências (Registrada / Documentada) |
-| Messages | Painel lateral **experimental** "Agente Persona" (protótipo de LD-026), com `Composer` + `MessageBubble`. Os fluxos validados não têm chat: o Persona Live usa os painéis "Argumentos reais" + "Rascunho sugerido" |
+| Messages | **Agente Persona**, eixo da plataforma: conversa central no Início e `AgentPanel` acoplado à direita nas demais telas (`Composer` + `MessageBubble`). No Persona Live os painéis "Argumentos reais" + "Rascunho sugerido" continuam sem bolhas de chat |
 | Resume builder com score ATS | Artefatos (Resposta STAR, Pitch, Currículo ATS, Portfólio) |
 | Career tools / Profile | Painel do Narrative Score (a partir do Início) · Configurações no rodapé |
 
@@ -79,7 +79,7 @@ Contrastes calculados por luminância relativa WCAG, sem arredondamento intermed
     "color": {
       "palette_type": "monochromatic com acentos semânticos (Indigo como única cor de marca; matizes semânticas só nos tiles de destino e estados)",
       "primary": { "hex": "#7C3AED", "role": "O único CTA por tela (gradiente #7C3AED → #6D28D9), passo ativo da jornada, item ativo da navegação" },
-      "secondary": { "hex": "#1A1726", "role": "Ink — texto principal e botão sólido (um por card). também nos balões da pessoa no painel experimental do Agente" },
+      "secondary": { "hex": "#1A1726", "role": "Ink — texto principal e botão sólido (um por card). Também nos balões da pessoa e no botão de enviar do Agente" },
       "accent": { "hex": "#2E1A6B", "role": "Fim do gradiente do card escuro de jornada (Indigo 900) — apenas na superfície focal" },
       "neutral": {
         "scale": ["#FFFFFF", "#FAFAFC", "#F2F1F7", "#E4E2EE", "#C9C5D8", "#888291", "#6D5BA6", "#4F4866", "#2E2A3D", "#1A1726"],
@@ -161,10 +161,10 @@ Contrastes calculados por luminância relativa WCAG, sem arredondamento intermed
       "button_style": "Todos pill. Brand: gradiente Indigo com glow, um por tela. Solid: Ink #1A1726, um por card. Outline: borda E4E2EE. Ghost: só texto.",
       "input_style": "Busca em pill branca com ícone à esquerda; campos raio 16px, borda 1px E4E2EE, foco com anel 2px #A78BFA",
       "card_style": "Branco, raio 22–28px, sombra Soft; tiles de destino com fundo pastel semântico, raio 22px, título + uma 'linha viva' de status + seta ↗ + ilustração no canto",
-      "navigation_pattern": "Sidebar com logo, ícone + rótulo, item ativo em pill #ECEAFB; card de 'continuar' e Configurações fixados no rodapé. Desktop-first: rail em 768 px e drawer abaixo disso, sem tab bar (não há app mobile dedicado nesta fase).",
-      "modal_style": "Painel flutuante ancorado, raio 28px, sombra Float, sem overlay escuro pesado",
-      "list_style": "Linhas (EntryRow, EvidenceCard variante linha, ArtifactRow): título 15/600, metadado 13/400, status em badge, data à direita; divisor 1px #E4E2EE",
-      "component_notes": "Stepper de jornada com nós circulares: concluído / ativo (anel + glow) / bloqueado (cadeado). Chips de verificação ('✓ 3 evidências'). Badge 'Aberto agora' com ponto verde."
+      "navigation_pattern": "Sidebar com logo, ícone + rótulo, item ativo em pill #ECEAFB; card de 'continuar' e Configurações fixados no rodapé. Botão "Agente" fixo no cabeçalho (Ctrl/⌘+K). Desktop-first: rail em 768 px e drawer abaixo disso, sem tab bar (não há app mobile dedicado nesta fase).",
+      "modal_style": "FloatingPanel ancorado de 560–640 px para todo detalhe (substitui painel lateral), raio 28px, sombra Float, fundo apenas esmaecido; um por vez, Esc fecha. AgentPanel acoplado à direita (380–420 px, recolhível, empurra o conteúdo, raio 28, sombra Float)",
+      "list_style": "Grades de cards de 2–3 colunas (EntryCard, EvidenceCard, ArtifactCard): título 15/600, metadado 13/400, status em badge, data no rodapé do card; raio 22, sombra Soft. Sem tabelas e sem linhas densas. Filtros recolhidos atrás do botão Filtros; visões como Chip; detalhes longos em seções com SectionIndex (sem abas)",
+      "component_notes": "AgentPrompt: campo grande em pill branca com ícone e chips de sugestão; o botão de enviar é Ink. Stepper de jornada com nós circulares: concluído / ativo (anel + glow) / bloqueado (cadeado). Chips de verificação ('✓ 3 evidências'). Badge 'Aberto agora' com ponto verde."
     }
   },
   "design_style": {

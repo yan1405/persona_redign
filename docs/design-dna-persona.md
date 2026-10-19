@@ -1,8 +1,8 @@
 # Design DNA — Persona Redesign (referência iStudio)
 
-> **Status:** v1.2 · 19/10/2026 (v1.0 de 18/10/2026, gerada com a skill `design-dna`) · v1.1 corrigiu a tradução da arquitetura (§1) · v1.2 reorienta para **plataforma com agente de IA** (não CRM): agente central, cards em vez de linhas, painéis flutuantes em vez de laterais, seções em vez de abas
+> **Status:** v1.3 · 19/10/2026 (v1.0 de 18/10/2026, gerada com a skill `design-dna`) · v1.1 corrigiu a tradução da arquitetura (§1) · v1.2 reorientou para **plataforma com agente de IA** (não CRM) · v1.3 confirmou a tipografia da referência, retirou o Xisto e corrigiu o JSON canônico
 > **Referência:** [Student Career Dashboard | UI/UX Design Case Study 2026 (Behance)](https://www.behance.net/gallery/257051775/Student-Career-Dashboard-UIUX-Design-Case-Study-2026)
-> **Decisões fixadas:** cores = paleta Persona (Indigo + Slate, D-026) · tipografia = da referência (Plus Jakarta Sans + Inter) · Geist/Geist Mono descontinuadas no redesign.
+> **Decisões fixadas:** cores = paleta Persona (Indigo + Slate, D-026) · tipografia = da referência do Behance (Plus Jakarta Sans + Inter) · Geist/Geist Mono descontinuadas neste redesign. A diferença tipográfica em relação ao produto original é intencional.
 
 As imagens da referência **não** são versionadas neste repositório (obra de terceiros, repositório público). Use o link acima.
 
@@ -145,7 +145,7 @@ Contrastes calculados por luminância relativa WCAG, sem arredondamento intermed
       "depth_cues": "Sombras suaves, cards brancos sobre fundo tingido, glow do CTA de marca (0 8px 20px -6px rgb(124 58 237 / 0.45))"
     },
     "iconography": {
-      "style": "Outline linear (Lucide) na navegação e nos tiles de destino. Sem mascote: o Xisto está fora do redesign (decisão D3, confirmada em 19/10/2026)",
+      "style": "Outline linear (Lucide) na navegação e nos tiles de destino. Xisto fora deste redesign (decisão D3 confirmada)",
       "stroke_weight": "1.75px",
       "size_scale": ["16px", "18px", "20px", "24px"],
       "preferred_set": "Lucide"
@@ -161,7 +161,7 @@ Contrastes calculados por luminância relativa WCAG, sem arredondamento intermed
       "button_style": "Todos pill. Brand: gradiente Indigo com glow, um por tela. Solid: Ink #1A1726, um por card. Outline: borda E4E2EE. Ghost: só texto.",
       "input_style": "Busca em pill branca com ícone à esquerda; campos raio 16px, borda 1px E4E2EE, foco com anel 2px #A78BFA",
       "card_style": "Branco, raio 22–28px, sombra Soft; tiles de destino com fundo pastel semântico, raio 22px, título + uma 'linha viva' de status + seta ↗ + ilustração no canto",
-      "navigation_pattern": "Sidebar com logo, ícone + rótulo, item ativo em pill #ECEAFB; card de 'continuar' e Configurações fixados no rodapé. Botão "Agente" fixo no cabeçalho (Ctrl/⌘+K). Desktop-first: rail em 768 px e drawer abaixo disso, sem tab bar (não há app mobile dedicado nesta fase).",
+      "navigation_pattern": "Sidebar com logo, ícone + rótulo, item ativo em pill #ECEAFB; card de 'continuar' e Configurações fixados no rodapé. Botão \"Agente\" fixo no cabeçalho (Ctrl/⌘+K). Desktop-first: rail em 768 px e drawer abaixo disso, sem tab bar (não há app mobile dedicado nesta fase).",
       "modal_style": "FloatingPanel ancorado de 560–640 px para todo detalhe (substitui painel lateral), raio 28px, sombra Float, fundo apenas esmaecido; um por vez, Esc fecha. AgentPanel acoplado à direita (380–420 px, recolhível, empurra o conteúdo, raio 28, sombra Float)",
       "list_style": "Grades de cards de 2–3 colunas (EntryCard, EvidenceCard, ArtifactCard): título 15/600, metadado 13/400, status em badge, data no rodapé do card; raio 22, sombra Soft. Sem tabelas e sem linhas densas. Filtros recolhidos atrás do botão Filtros; visões como Chip; detalhes longos em seções com SectionIndex (sem abas)",
       "component_notes": "AgentPrompt: campo grande em pill branca com ícone e chips de sugestão; o botão de enviar é Ink. Stepper de jornada com nós circulares: concluído / ativo (anel + glow) / bloqueado (cadeado). Chips de verificação ('✓ 3 evidências'). Badge 'Aberto agora' com ponto verde."
@@ -172,7 +172,7 @@ Contrastes calculados por luminância relativa WCAG, sem arredondamento intermed
       "mood": ["calmo", "encorajador", "confiável", "focado"],
       "visual_metaphor": "Painel de bordo pessoal — 'o que faço agora?' respondido no primeiro olhar",
       "era_influence": "SaaS de consumo 2025–2026 (cards suaves, pills, glow sutil)",
-      "genre": "consumer SaaS / edtech de carreira",
+      "genre": "consumer SaaS / inteligência de carreira",
       "personality_traits": ["direto", "acolhedor", "organizado", "motivador sem ser infantil"],
       "adjectives": ["limpo", "arredondado", "orientado à ação", "leve", "seguro"]
     },
@@ -194,7 +194,7 @@ Contrastes calculados por luminância relativa WCAG, sem arredondamento intermed
     },
     "imagery": {
       "photo_treatment": "Somente avatares circulares",
-      "illustration_style": "Substituir os objetos 3D 'clay' da referência por ícones Lucide em quadrado suave (sem mascote; o Xisto está fora do redesign)",
+      "illustration_style": "Substituir os objetos 3D 'clay' da referência por ícones Lucide em quadrado suave; não usar o Xisto neste redesign",
       "graphic_elements": "Barras de progresso finas, anéis de score, nós de stepper, pontos de presença",
       "pattern_usage": "Nenhum no produto",
       "image_shape": "Círculo (avatares) e retângulo arredondado"
@@ -241,6 +241,7 @@ Contrastes calculados por luminância relativa WCAG, sem arredondamento intermed
 ## 5. Ressalvas críticas
 
 1. **Risco de monotonia cromática.** A referência funciona por contraste de temperatura (laranja quente × papel neutro × roxo frio). No Persona, primário e neutros têm o mesmo matiz violeta → tende a ficar "tudo lavanda". Mitigação: tiles de destino com tons semânticos e Indigo restrito ao CTA e ao passo ativo. Se ainda ficar chapado, a correção é um neutro quente — não uma segunda cor de marca.
-2. **Ícones 3D genéricos.** Os objetos "clay" da referência são o elemento mais "template". No Persona, substituir por ícones Lucide; o Xisto está fora do redesign (decisão D3).
+2. **Ícones 3D genéricos.** Os objetos "clay" da referência são o elemento mais "template". No Persona, substituir por ícones Lucide; o Xisto está fora deste redesign (decisão D3 confirmada).
 3. **Verde com texto branco reprova AA** (2,5367:1). Badges de sucesso usam `#064E3B` sobre `#ECFDF5`.
 4. **Inter é a fonte mais genérica do mercado.** Mantida por fidelidade à referência (decisão de 18/10/2026); reavaliar se o resultado parecer genérico.
+

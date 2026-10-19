@@ -1,8 +1,8 @@
 # Guia de execução — Design System do Persona (Etapas 2 e 3)
 
-> **Versão:** 1.0 · 19/10/2026
+> **Versão:** 1.1 · 19/10/2026
 > **Público:** o Claude Design (leitor) e Yan (quem cola os prompts).
-> **Escopo:** Etapa 2 (componentes) e Etapa 3 (shell e layout) do [`plano-correcao-claude-design.md`](plano-correcao-claude-design.md) v2.2. A Etapa 4 (telas) terá um guia próprio, depois que esta etapa for aprovada.
+> **Escopo:** Etapa 2 (componentes) e Etapa 3 (shell e layout) do [`plano-correcao-claude-design.md`](plano-correcao-claude-design.md) v2.3. A Etapa 4 (telas) terá um guia próprio, depois que esta etapa for aprovada.
 > **Direção:** o Persona é uma **plataforma com agente de IA, não um CRM**. Produto em [`persona-fluxos-e-features.md`](persona-fluxos-e-features.md) (v1.2) e visual em [`design-dna-persona.md`](design-dna-persona.md) (v1.2).
 
 ---
@@ -25,7 +25,7 @@ Fluxo de cada tarefa:
 1. **Uma tarefa por vez.** Não adiante a seguinte e não altere nada fora do escopo do prompt.
 2. **Sem "feito" sem ter visto.** Toda alteração visual precisa de capturas em 1024, 1280 e 1440 px, abertas e olhadas por você. Escreva "vi as capturas" apenas se for verdade.
 3. **Sem placeholder.** Nunca escreva "(sem alterações)", "TODO" ou "igual ao anterior" dentro de um arquivo. Se mantém um trecho, mantenha o texto completo.
-4. **Não altere tokens.** Cores, fontes, raios e sombras ficam como estão (decisão D6).
+4. **Não altere tokens.** Cores, fontes, raios e sombras ficam como estão (decisão D6). Plus Jakarta Sans + Inter são uma escolha intencional baseada na referência do Behance; não as reverta para a tipografia do projeto inicial.
 5. **Estrutura obrigatória:** cards em grade, painéis flutuantes, seções com índice de âncoras, **sem abas e sem tabelas**; o Agente Persona está presente.
 6. **Dados:** use só a massa de dados da seção 10 do anexo de produto.
 7. **Se algo no prompt contradiz o anexo de produto, pare e pergunte.** O anexo vence em produto; o Design DNA vence em visual.
@@ -35,7 +35,7 @@ Fluxo de cada tarefa:
 
 | # | Pré-requisito | Quem confirma |
 |---|---|---|
-| P1 | As regras permanentes **v2.2** foram coladas (resposta "ok, regras registradas (v2.2)") | Yan |
+| P1 | As regras permanentes **v2.3** foram coladas (resposta "ok, regras registradas (v2.3)") | Yan |
 | P2 | T1.2 e T1.2b concluídas: o Readme não tem "(sem alterações)" nem resíduos de chat aberto, 6 tiles ou Xisto | Yan, abrindo o Readme |
 | P3 | T1.3 concluída (SKILL.md, github.md, thumbnail) | Yan |
 | P4 | U0.1 feita: "Padrão da organização" removido e o Persona Design System fixado no projeto | Yan |
@@ -94,4 +94,5 @@ Depois dessa mensagem, **nenhuma ação** até a resposta de Yan.
 
 - **Etapa 0** (manual) e **Etapa 1** (escopo): já estão no plano.
 - **Etapa 4** (telas), **5** (responsivo e acessibilidade) e **6** (fechamento): guia próprio depois do "ok" da Etapa 3.
-- **Mascote Xisto (D3):** fora do redesign, decisão de Yan em 19/10/2026. Só ícones Lucide.
+- **Decisão confirmada D3 (mascote Xisto):** fora deste redesign; use somente ícones Lucide.
+

@@ -16,7 +16,7 @@ A pasta local espelha `docs/` e guarda material que **não** é versionado aqui:
 
 | # | Arquivo | Papel | Precedência |
 |---|---|---|---|
-| 1 | [`docs/persona-fluxos-e-features.md`](docs/persona-fluxos-e-features.md) | **Produto:** ciclo, navegação, 20 features validadas + o Agente Persona (F-21, direção, não implementado), 8 fluxos de ponta a ponta, fichas por tela, componentes, regras de honestidade e massa de dados | Vence em qualquer dúvida de produto, fluxo, texto ou dado |
+| 1 | [`docs/persona-fluxos-e-features.md`](docs/persona-fluxos-e-features.md) | **Produto:** ciclo, navegação, 20 funcionalidades com status explícito + o Agente Persona (F-21, direção, não implementado), 8 fluxos de ponta a ponta, fichas por tela, componentes, regras de honestidade e massa de dados | Vence em qualquer dúvida de produto, fluxo, texto ou dado |
 | 2 | [`docs/design-dna-persona.md`](docs/design-dna-persona.md) | **Visual:** tokens, tipografia, cor, contrastes WCAG, componentes e efeitos | Vence em dúvida visual |
 | 3 | [`docs/plano-correcao-claude-design.md`](docs/plano-correcao-claude-design.md) | **Execução:** prompts em ordem para corrigir o projeto no Claude Design (v2.3) | Ordem e critérios de aceite |
 | 4 | [`docs/guia-execucao-design-system.md`](docs/guia-execucao-design-system.md) | **Guia de execução** das Etapas 2 e 3, com evidências e checkpoints de parada | Como o Claude Design conduz as tarefas |

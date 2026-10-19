@@ -1,6 +1,6 @@
 # Plano de correção do Claude Design — Persona
 
-> **Versão:** 2.2 · 19/10/2026 (substitui a v2.1, a v2.0 e a v1.0; a v2.2 adota a direção **plataforma com agente de IA, não CRM**: agente central, cards, painéis flutuantes e seções)
+> **Versão:** 2.3 · 19/10/2026 (substitui a v2.2 e anteriores; explicita a tipografia baseada no Behance, confirma o Xisto fora do redesign e corrige a separação entre produto comprovado e protótipo)
 > **Projeto:** https://claude.ai/design/p/ff1a7bce-a6f2-4fa9-af99-a6196b748678
 > **Decisão vigente (Opção A):** o Persona continua sendo um SaaS de **narrativa profissional**. O kit "Persona Acadêmico" gerado pelo Claude Design foi um erro de escopo e deve ser substituído.
 > **Fontes da verdade, em ordem de precedência:**
@@ -82,10 +82,10 @@ A v1.0 foi escrita a partir do Design DNA, sem conferir os documentos aprovados 
 |---|---|---|
 | D1 | **Navegação:** Início · Diário · Evidências · Persona Live · Artefatos, mais Configurações no rodapé, mais o Agente Persona presente em todas as telas. O Narrative Score é uma faixa de KPIs no Início e abre em painel flutuante | `INFORMATION_ARCHITECTURE.md` §2 (aprovado) |
 | D2 | **Agente no centro, sem CRM.** O Agente Persona é o eixo: campo "Buscar ou perguntar" no Início e painel acoplado em todas as telas. `Composer` e `MessageBubble` pertencem a ele; o Diário tem `CaptureEditor` próprio. Dentro do Live e dos Artefatos a IA age por ações nomeadas, sem bolhas de chat. Listas viram cards, detalhes viram painéis flutuantes com seções e não há abas | Decisão de Yan, 19/10/2026 ("não estamos montando um CRM e sim uma plataforma com agente de AI"). Divergência consciente das Fases 7 e 8 (ver acima) |
-| D3 | **Sem o mascote Xisto**: só ícones Lucide | Decisão de Yan, 19/10/2026: o Xisto fica fora do redesign |
+| D3 | **Sem o mascote Xisto neste redesign**: ícones Lucide | Decisão confirmada por Yan; não depende mais da disponibilidade dos arquivos-fonte |
 | D4 | **Níveis de evidência:** Registrada (sem link) e Documentada (≥ 1 link). Validada e Certificada aparecem só como explicação "indisponível". "Para revisar" = sugestão não confirmada | Fase 5 e `PRODUCT_BRIEF.md` §5 |
 | D5 | **Competências em texto livre**, sem taxonomia e sem níveis de habilidade | A Fase 5 deixa a taxonomia global fora do escopo. Resolve a antiga pendência U0.4 |
-| D6 | **Tokens visuais permanecem** (cores, fontes, raios, sombras) | O resultado visual foi aprovado; o erro é de conteúdo e de layout |
+| D6 | **Tokens visuais do redesign permanecem** (cores, fontes, raios, sombras) | Plus Jakarta Sans + Inter vêm deliberadamente da referência do Behance e podem diferir do projeto inicial; o erro a corrigir é de produto, conteúdo e layout |
 | D7 | **Fora do desenho:** CRM (funil, pipeline, leads, contatos), planos e preços, paywall, carta de apresentação, cadastro/senha, upload de arquivo, áudio no Live, app mobile dedicado | `PRODUCT_BRIEF.md` §10 e `INFORMATION_ARCHITECTURE.md` §6 |
 
 **Massa de dados:** use **exclusivamente** a seção 10 de `persona-fluxos-e-features.md`.
@@ -94,7 +94,7 @@ A v1.0 foi escrita a partir do Design DNA, sem conferir os documentos aprovados 
 
 ## Regras permanentes (cole uma vez, na tarefa T1.1)
 
-> Se você já colou a versão da v2.1, **cole esta de novo**: ela substitui a anterior. Ao final o Claude Design deve responder "ok, regras registradas (v2.2)".
+> Se você já colou uma versão anterior, **cole esta de novo**: ela substitui todas as anteriores. Ao final o Claude Design deve responder "ok, regras registradas (v2.3)".
 
 ```text
 REGRAS PERMANENTES DO PROJETO — valem para todo prompt seguinte.
@@ -102,7 +102,7 @@ REGRAS PERMANENTES DO PROJETO — valem para todo prompt seguinte.
 1. Produto: Persona é uma PLATAFORMA COM AGENTE DE IA para narrativa profissional. NÃO é CRM. Ciclo: Diário (texto livre) → sugestões da IA → a pessoa confirma → Evidência (Registrada ou Documentada) → Narrative Score explicável → ativação no Persona Live (argumentos reais + rascunho para entrevista) e nos Artefatos (Resposta STAR, Pitch pessoal, Currículo ATS, Portfólio). NÃO é plataforma acadêmica, de tutores nem de ABNT, e NÃO é CRM (sem funil, pipeline, leads ou tabelas de gestão). Se aparecer algo disso, remova.
 2. Navegação: Início, Diário, Evidências, Persona Live, Artefatos; Configurações no rodapé; o Agente Persona fica presente em todas as telas. O Narrative Score fica no Início e abre em painel flutuante. Não crie outros destinos.
 3. Agente central: o Agente Persona é o eixo da plataforma. No Início, o campo "Buscar ou perguntar" e a conversa ocupam a área central; nas demais telas, um painel acoplado à direita (380–420 px, recolhível) abre pelo botão "Agente" ou por Ctrl/⌘+K. Ele só usa evidências registradas, cita a origem de cada afirmação, nunca salva nada sem confirmação, nunca autoriza evidências no Live e nunca escreve a resposta final de entrevista fora do Live. Dentro dos workspaces do Persona Live e dos Artefatos NÃO há bolhas de mensagem: a IA age por ações nomeadas (Encurtar, Aprofundar, Outra experiência, Adaptar ao objetivo, Gerar alternativa).
-4. Visual: não altere nenhum token. Indigo + Slate, Plus Jakarta Sans + Inter, raios 16/22/28/pill, sombras Soft/Float/Slab. Sem laranja, sem emoji, sem ícones 3D, sem mascote.
+4. Visual: não altere nenhum token. Indigo + Slate, Plus Jakarta Sans + Inter, raios 16/22/28/pill, sombras Soft/Float/Slab. A tipografia vem intencionalmente da referência do Behance e não deve voltar para Geist só para imitar o projeto inicial. Sem laranja, sem emoji, sem ícones 3D, sem mascote.
 5. Hierarquia: no máximo UM botão de marca (gradiente Indigo) por tela e UM bloco focal escuro por tela. Botão Ink: no máximo um por card.
 6. Honestidade: nunca mostre conquista sem a evidência que a sustenta. Níveis: Registrada e Documentada; "Para revisar" para sugestões. Credibilidade = "Ainda não avaliada". Sem fato suficiente, mostre uma lacuna, nunca um texto genérico. Todo texto gerado aponta a evidência de origem.
 7. Fora do escopo: planos, preços, paywall, carta de apresentação, cadastro/senha (a entrada é só "Entrar com Microsoft"), upload de arquivo, áudio.
@@ -111,7 +111,7 @@ REGRAS PERMANENTES DO PROJETO — valem para todo prompt seguinte.
 10. Verificação: depois de cada alteração, abra o resultado em 1024, 1280 e 1440 px, tire capturas e me mostre. Não diga "feito" sem ter visto.
 11. Uma tarefa por vez. Não altere nada fora do escopo do prompt.
 12. Estrutura: listas são GRADES DE CARDS (2–3 colunas), nunca tabelas nem linhas densas. Todo detalhe abre em PAINEL FLUTUANTE ancorado (560–640 px, raio 28, sombra Float, um por vez); detalhes longos usam SEÇÕES empilhadas com índice de âncoras. NÃO use abas. Visões viram chips; filtros ficam recolhidos atrás de um botão "Filtros". Artefatos usam workspace de página inteira.
-Estas regras SUBSTITUEM qualquer versão anterior. Responda apenas "ok, regras registradas (v2.2)" e aguarde.
+Estas regras SUBSTITUEM qualquer versão anterior. Responda apenas "ok, regras registradas (v2.3)" e aguarde.
 ```
 
 ---
@@ -122,7 +122,7 @@ Estas regras SUBSTITUEM qualquer versão anterior. Responda apenas "ok, regras r
 |---|---|---|
 | U0.1 | No Claude Design, abra o Design System e clique em **"Remove as org default"**. Antes disso, no seletor de design system do projeto, fixe o próprio "Persona Design System" (não "Padrão da organização") | O aviso "Currently org default" desaparece e o projeto continua apontando para o Persona |
 | U0.2 | Anexe pelo botão **+** do chat o arquivo `persona-fluxos-e-features.md` (pasta `C:\Users\yansi\OneDrive\ref_redisgn_persona\docs\` ou repositório `docs/`). **Não anexe prints do app atual** | O arquivo aparece em `uploads/` |
-| U0.3 | Confirme ou vete as decisões D1–D7, (a D3, Xisto fora, já foi decidida). A D2 (agente no centro, sem CRM) já foi decidida por você em 19/10/2026 | Decisões anotadas |
+| U0.3 | Revise D1–D7 e registre somente exceções. D2 (agente no centro, sem CRM) e D3 (Xisto fora deste redesign) já foram confirmadas em 19/10/2026 | Exceções anotadas ou "sem exceções" |
 
 ---
 
@@ -131,7 +131,7 @@ Estas regras SUBSTITUEM qualquer versão anterior. Responda apenas "ok, regras r
 ### T1.1 — Registrar as regras permanentes
 
 **Prompt:** cole o bloco "Regras permanentes".
-**Critério de aceite:** o Claude Design responde "ok, regras registradas (v2.2)" e não altera arquivos.
+**Critério de aceite:** o Claude Design responde "ok, regras registradas (v2.3)" e não altera arquivos.
 
 ### T1.2 — Reescrever o Readme
 
@@ -162,7 +162,7 @@ Na entrega da T1.2, o Claude Design deixou "(sem alterações)" no lugar de Visu
 ```text
 Corrija o Readme do design system. Não altere tokens nem componentes.
 1. Visual foundations: escreva a seção por completo (cores, tipografia, raios, sombras, espaçamento, movimento, contraste e regras de hierarquia: um botão de marca e um bloco focal escuro por tela, Ink no máximo um por card), com base em styles.css e em docs/design-dna-persona.md. Nunca use "sem alterações" ou qualquer placeholder. Troque "Six destination tiles" por "Four destination tiles", "user's chat bubbles" por "the person's bubbles in the Agente Persona" e acrescente: cards em grade de 2–3 colunas, painéis flutuantes de 560–640 px, seções com índice de âncoras e nenhuma aba.
-2. Iconography: escreva a seção por completo (Lucide, traço 1.75, tamanhos, uso em tiles e navegação). Remova o mascote Xisto: ele está fora do redesign (decisão de Yan).
+2. Iconography: escreva a seção por completo (Lucide, traço 1.75, tamanhos, uso em tiles e navegação). Remova o mascote Xisto deste redesign; use apenas ícones Lucide.
 3. Index: liste o que existe hoje (styles.css, fonts/, assets/, guidelines/, components/, SKILL.md, github.md, thumbnail.html) e marque ui_kits/academico/ como "legado — será removido na T6.2", SourceCard e a pasta chat/ como "serão renomeados/reorganizados nas T2.1 e T2.3". Sem "(sem alterações)".
 4. Em "Components", descreva o estado atual e o previsto: EvidenceCard, EntryCard, ArtifactCard, AgentPrompt, AgentPanel, FloatingPanel, SectionIndex.
 Mostre o texto final do Readme.
@@ -444,3 +444,4 @@ Peça depois da Etapa 6, uma por prompt, nesta ordem:
 - [ ] Auditoria WCAG AA concluída, com as razões de contraste informadas.
 - [ ] "Org default" desativado até a aprovação final.
 - [ ] Documentação sincronizada com o repositório `persona_redign`.
+

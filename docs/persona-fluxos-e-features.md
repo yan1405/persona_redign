@@ -1,7 +1,7 @@
-# Persona — Fluxos de uso e features validadas
+# Persona — Fluxos, funcionalidades e direção do redesign
 
 > **Versão:** 1.2 · 19/10/2026 (v1.2 reorienta o redesign: **plataforma com agente de IA**, não CRM. O Agente Persona passa a ser o eixo da experiência; cards, painéis flutuantes e seções substituem listas densas, painéis laterais e abas)
-> **Papel deste arquivo:** é o **anexo de produto** do redesign. Ele substitui os prints do app atual: descreve o que o Persona faz, em que ordem a pessoa usa e como cada feature validada se encaixa no novo design system. O visual antigo está descartado; **o comportamento descrito aqui não**.
+> **Papel deste arquivo:** é o **anexo de produto** do redesign. Ele substitui os prints do app atual: descreve o que o Persona faz, em que ordem a pessoa usa e separa o que já foi implementado/validado do que é direção de protótipo. O visual antigo está descartado; **o comportamento comprovado aqui não**. A tipografia pode mudar conforme a referência do Behance.
 > **Precedência:** em conflito, vale este arquivo para produto e fluxo; `design-dna-persona.md` para visual; `plano-correcao-claude-design.md` para a ordem de execução.
 > **Fontes:** documentos aprovados do app em `Persona_Geral/persona_mvp_v2/docs/` — `PRODUCT_BRIEF.md` (16/09/2026), `architecture/INFORMATION_ARCHITECTURE.md`, `handoff/PRODUCT_SURFACE.md`, `handoff/CURRENT_STATE.md` e os contratos das Fases 3 a 9 em `plans/`.
 
@@ -51,7 +51,7 @@ Regra que atravessa o ciclo: **a IA sugere, a pessoa confirma.** Nada vira fato 
 - O **Diagnóstico** (`/app/diagnostico`) é um fluxo sequencial acionado pelo Início, não item de menu.
 - Desktop-first, a partir de 1024 px. Não há app mobile dedicado nesta fase.
 
-## 4. Features validadas — o que o redesign precisa representar
+## 4. Estado das funcionalidades — comprovado x protótipo
 
 Status de acordo com `CURRENT_STATE.md` (snapshot técnico de 02/09/2026, atualização de produto em 16/09/2026).
 
@@ -375,3 +375,4 @@ Próxima ação: "Revise as 2 sugestões do Diário" → botão de marca "Revisa
 | Configurações | Perfil e plano, Pro, Premium, preço |
 | Entrar com Microsoft | cadastro, senha, recuperar senha |
 | Cards, painel flutuante, seção, "Buscar ou perguntar" | CRM, pipeline, funil, leads, contatos, aba, tabela de gestão |
+

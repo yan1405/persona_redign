@@ -16,9 +16,9 @@ A pasta local espelha `docs/` e guarda material que **não** é versionado aqui:
 
 | # | Arquivo | Papel | Precedência |
 |---|---|---|---|
-| 1 | [`docs/persona-fluxos-e-features.md`](docs/persona-fluxos-e-features.md) | **Produto:** ciclo, navegação, 20 features validadas, 7 fluxos de ponta a ponta, fichas por tela, componentes, regras de honestidade e massa de dados | Vence em qualquer dúvida de produto, fluxo, texto ou dado |
+| 1 | [`docs/persona-fluxos-e-features.md`](docs/persona-fluxos-e-features.md) | **Produto:** ciclo, navegação, 20 features validadas + 1 experimental (Agente Persona), 8 fluxos de ponta a ponta, fichas por tela, componentes, regras de honestidade e massa de dados | Vence em qualquer dúvida de produto, fluxo, texto ou dado |
 | 2 | [`docs/design-dna-persona.md`](docs/design-dna-persona.md) | **Visual:** tokens, tipografia, cor, contrastes WCAG, componentes e efeitos | Vence em dúvida visual |
-| 3 | [`docs/plano-correcao-claude-design.md`](docs/plano-correcao-claude-design.md) | **Execução:** prompts em ordem para corrigir o projeto no Claude Design (v2.0) | Ordem e critérios de aceite |
+| 3 | [`docs/plano-correcao-claude-design.md`](docs/plano-correcao-claude-design.md) | **Execução:** prompts em ordem para corrigir o projeto no Claude Design (v2.1) | Ordem e critérios de aceite |
 
 ## Decisões vigentes
 
@@ -26,7 +26,7 @@ A pasta local espelha `docs/` e guarda material que **não** é versionado aqui:
 - **Cores:** paleta Persona mantida — Indigo `#7C3AED` (primária) + Slate (neutros).
 - **Tipografia:** Plus Jakarta Sans (títulos) + Inter (leitura).
 - **Referência estrutural:** [Student Career Dashboard — iStudio (Behance)](https://www.behance.net/gallery/257051775/Student-Career-Dashboard-UIUX-Design-Case-Study-2026). As imagens de terceiros não são versionadas aqui.
-- **Sem chat** em nenhuma tela; a IA age por ações nomeadas e a pessoa confirma.
+- **Chat só no painel experimental "Agente Persona"** (protótipo do agente colaborativo, LD-026). Diário, Evidências, Persona Live e Artefatos não têm chat: a IA age por ações nomeadas e a pessoa confirma.
 - **Fora do escopo:** planos e preços, paywall, carta de apresentação, cadastro/senha (entrada só com Microsoft), upload de arquivo, áudio.
 - **Mascote Xisto:** suspenso no redesign até existirem arquivos-fonte (D3, sujeita a veto).
 - **Ferramentas de geração:** Claude Design (projeto `ff1a7bce-a6f2-4fa9-af99-a6196b748678`) e Google Stitch.
@@ -38,3 +38,4 @@ A pasta local espelha `docs/` e guarda material que **não** é versionado aqui:
 | 18/10/2026 | Design DNA v1.0 e README |
 | 19/10/2026 | Plano de correção v1.0 (Opção A) |
 | 19/10/2026 | Conferência contra o produto aprovado: novo `persona-fluxos-e-features.md`, plano v2.0, Design DNA v1.1 e pasta local movida para `OneDrive\ref_redisgn_persona` |
+| 19/10/2026 | Painel experimental do Agente Persona com chat (decisão de Yan, opção A): fluxos v1.1, plano v2.1 |

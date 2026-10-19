@@ -1,6 +1,6 @@
 # Persona — Fluxos de uso e features validadas
 
-> **Versão:** 1.0 · 19/10/2026
+> **Versão:** 1.1 · 19/10/2026 (v1.1 acrescenta o painel experimental do Agente Persona, F-21)
 > **Papel deste arquivo:** é o **anexo de produto** do redesign. Ele substitui os prints do app atual: descreve o que o Persona faz, em que ordem a pessoa usa e como cada feature validada se encaixa no novo design system. O visual antigo está descartado; **o comportamento descrito aqui não**.
 > **Precedência:** em conflito, vale este arquivo para produto e fluxo; `design-dna-persona.md` para visual; `plano-correcao-claude-design.md` para a ordem de execução.
 > **Fontes:** documentos aprovados do app em `Persona_Geral/persona_mvp_v2/docs/` — `PRODUCT_BRIEF.md` (16/09/2026), `architecture/INFORMATION_ARCHITECTURE.md`, `handoff/PRODUCT_SURFACE.md`, `handoff/CURRENT_STATE.md` e os contratos das Fases 3 a 9 em `plans/`.
@@ -14,7 +14,7 @@
 - **Promessa funcional:** "Registre uma vez. Prove sempre."
 - **Diferenciação:** "O Persona não começa pela resposta. Começa pela evidência."
 
-O Persona **não** é plataforma acadêmica, de tutores, de chat com IA nem rede social. Ele não responde pela pessoa e não inventa fatos.
+O Persona **não** é plataforma acadêmica, de tutores nem rede social, e o produto não é organizado em torno de um chat. Ele não responde pela pessoa e não inventa fatos. A única conversa com IA é o painel **experimental** do Agente Persona (F-21), que existe para prototipar o agente colaborativo aprovado em LD-026.
 
 ## 2. O ciclo do produto
 
@@ -71,6 +71,7 @@ Status de acordo com `CURRENT_STATE.md` (snapshot técnico de 02/09/2026, atuali
 | F-18 | **Versões** | Snapshots de geração e revisão com restauração; nada sobrescreve silenciosamente uma edição manual | Implementada | Artefatos › aba Versões | `EntryRow` |
 | F-19 | **Configurações** | Perfil · Preferências (lembrete, comunicação opcional) · Dados e privacidade (exportar JSON, excluir conta com reautenticação Microsoft e a confirmação "EXCLUIR") · Conta Microsoft | Implementada e validada visualmente em 31/08/2026; migração pendente no Supabase | Configurações | `Switch`, `Input`, `Button` |
 | F-20 | **Rastreabilidade visível** | Linha `registro → sugestão → evidência → prova → uso` em todo detalhe: é o **elemento-assinatura** do produto | Implementada | Todas as telas de detalhe | `TraceLine` |
+| F-21 | **Agente Persona (experimental)** 🧪 | Painel lateral de conversa que segue o ciclo do agente colaborativo: Compreender → Organizar → Ativar → Acompanhar. Responde só com base nas evidências registradas, cita a origem de cada afirmação e nunca cria evidência sem confirmação | **Não implementada.** Protótipo de LD-026 (16/09/2026) feito neste teste de design | Painel do Agente (abre de qualquer tela) | `Composer`, `MessageBubble`, `EvidenceCard` (sugestão), `Chip` |
 
 **Fora da superfície atual (não desenhar como funcional):**
 - planos, preços, paywall e billing;
@@ -81,7 +82,7 @@ Status de acordo com `CURRENT_STATE.md` (snapshot técnico de 02/09/2026, atuali
 - áudio, escuta, transcrição ou modo automático do Live;
 - integração com Meet, Zoom ou Teams;
 - voz própria no Diário;
-- agente colaborativo (LD-026, em prototipação);
+- o agente colaborativo **como funcionalidade implementada**: no redesign ele aparece apenas como o painel experimental F-21;
 - landing page, rede social, painel administrativo e app mobile dedicado.
 
 ## 5. Fluxos de ponta a ponta
@@ -160,6 +161,24 @@ Status de acordo com `CURRENT_STATE.md` (snapshot técnico de 02/09/2026, atuali
 ### Fluxo 7 — Controle de dados
 
 `Configurações → Dados e privacidade → Exportar dados (JSON completo) | Excluir conta → reautenticação Microsoft → digitar "EXCLUIR" → confirmação forte`
+
+### Fluxo 8 — Conversar com o Agente Persona 🧪 (experimental)
+
+`qualquer tela → botão "Agente" no cabeçalho → painel lateral → pergunta livre ou chip sugerido → resposta com evidências citadas → ação proposta (abrir evidência, revisar sugestão, abrir no Persona Live, criar Artefato)`
+
+| Etapa do agente (LD-026) | Exemplo no painel |
+|---|---|
+| Compreender | "Qual oportunidade você quer preparar agora?" |
+| Organizar | "Organize minhas evidências por competência." → lista agrupada, cada item com link para a evidência |
+| Ativar | "Quero treinar para a entrevista na Aurora." → "Abrir no Persona Live", com a sessão já preparada |
+| Acompanhar | "O que falta para meu score sair da base declarada?" → lacunas e progresso, com a origem dos números |
+
+Regras do painel:
+- é **complementar**: não substitui o Persona Live, os Artefatos nem a revisão do Diário, apenas leva até eles;
+- cada afirmação traz um `Chip` com a evidência de origem; sem evidência, o agente diz "ainda não há registro sobre isso" e sugere o Diário;
+- uma evidência sugerida pelo agente aparece como `EvidenceCard` variante sugestão, com "Confirmar evidência"; nada é salvo sem confirmação;
+- o selo **Experimental** e o rodapé "O agente só usa as evidências que você registrou. Confira sempre a origem." ficam sempre visíveis;
+- o botão de enviar é Ink, nunca de marca: o painel não compete com a ação principal da tela de fundo.
 
 ## 6. Fichas por tela (kit do redesign)
 
@@ -240,14 +259,25 @@ Regras comuns a todas as telas:
 - **Ação de marca:** "Salvar alterações". A exclusão de conta é ação destrutiva separada, nunca escondida em hover, com confirmação forte.
 - **Sem planos e sem preços.**
 
+### 6.8 Painel do Agente Persona 🧪 (experimental)
+- **Objetivo:** prototipar o agente colaborativo (LD-026) sem alterar os fluxos validados.
+- **Estrutura:**
+  - painel lateral à direita, com 400–440 px, sobre a tela atual (sombra Float, raio 28);
+  - cabeçalho com "Agente Persona", selo "Experimental" e botão de fechar;
+  - conversa em `MessageBubble`: pessoa em Ink, agente em branco, com chips de evidência e uma linha de ações;
+  - `Composer` com os chips iniciais "O que falta para o score observado?", "Organize minhas evidências" e "Preparar uma entrevista";
+  - rodapé com o aviso fixo.
+- **Ação de marca:** nenhuma (a tela de fundo mantém a sua); enviar é Ink.
+- **Estados:** vazio (apresentação curta e os 3 chips) · respondendo (indicador discreto) · resposta com citações · sem evidência (lacuna e "Registrar no Diário") · falha ("Não consegui responder agora. Nada foi alterado.").
+
 ## 7. Componentes do design system
 
 | Situação | Componentes |
 |---|---|
 | Mantidos | `Icon`, `Button`, `IconButton`, `Badge`, `Chip`, `Avatar` (só para pessoas), `Input`, `PillTabs`, `Switch`, `Card`, `FocalCard`, `DestinationTile`, `JourneyStepper`, `ProgressBar`, `ScoreRing`, `NavItem` |
-| Renomeados ou adaptados | `SourceCard` → **`EvidenceCard`** (variantes: linha, sugestão para revisar, selecionável) · `ConversationRow` → **`EntryRow`** (registro, sessão, versão) · `Composer` → **`CaptureEditor`** (editor do Diário, sem chat) |
-| Removidos | `MessageBubble` e `Avatar variant="ai"`: não há chat em nenhuma tela |
-| Novos | **`DimensionRow`** · **`StepFlow`** ("Etapa N de M", Voltar/Continuar) · **`ArgumentPanel`** · **`DraftPanel`** (duração-alvo e controles) · **`ArtifactRow`** · **`TraceLine`** (rastreabilidade, o elemento-assinatura) |
+| Renomeados ou adaptados | `SourceCard` → **`EvidenceCard`** (variantes: linha, sugestão para revisar, selecionável) · `ConversationRow` → **`EntryRow`** (registro, sessão, versão) · `Composer` e `MessageBubble` → **só no painel do Agente** (chips e rodapé do Persona; avatar do agente rotulado "Agente Persona") |
+| Removidos | Nenhum. Os componentes de chat ficam restritos ao painel experimental F-21 |
+| Novos | **`DimensionRow`** · **`StepFlow`** ("Etapa N de M", Voltar/Continuar) · **`ArgumentPanel`** · **`DraftPanel`** (duração-alvo e controles) · **`ArtifactRow`** · **`TraceLine`** (rastreabilidade, o elemento-assinatura) · **`CaptureEditor`** (editor do Diário; não é chat) |
 
 ## 8. Regras de honestidade e de IA (inegociáveis)
 
@@ -258,7 +288,7 @@ Regras comuns a todas as telas:
 5. A Credibilidade não recebe número enquanto não houver validação real: aparece como "Ainda não avaliada".
 6. Poucos dados produzem estado de insuficiência, não pontuação artificial.
 7. O Persona não responde pela pessoa, não é indetectável e não promete aprovação.
-8. Não há chat aberto: a IA atua por ações nomeadas e fechadas.
+8. Nos fluxos validados (Diário, Evidências, Persona Live, Artefatos) não há chat: a IA atua por ações nomeadas e fechadas. A conversa existe **somente** no painel experimental do Agente Persona, que segue as regras 1 a 7 e cita a origem de cada afirmação.
 
 ## 9. Matriz fluxo × tela × componente
 
@@ -271,6 +301,7 @@ Regras comuns a todas as telas:
 | 5 Artefato | | | ● DestinationTile | | ● EvidenceCard selecionável | | | ● StepFlow · ArtifactRow · TraceLine | |
 | 6 Score | | | ● ScoreRing · DimensionRow | ● | ● | ● DimensionRow · PillTabs | | | |
 | 7 Dados | | | | | | | | | ● Switch · Button |
+| 8 Agente 🧪 | | | ● painel | ● painel | ● painel | ● painel | ● painel ("Abrir no Live") | ● painel | |
 
 ## 10. Massa de dados fictícia (usada em todas as telas)
 
@@ -310,6 +341,11 @@ Conferência: 0,6 × 75 + 0,4 × 50 = 45 + 20 = **65** (exato).
 - Resposta STAR "Problema resolvido com dados" · **Revisado** · cita a evidência 1.
 - Pitch pessoal · **Rascunho** · cita as evidências 1, 2 e 3.
 
+**Agente Persona (painel experimental), conversa-exemplo:**
+- Você: "O que falta para meu score sair da base declarada?"
+- Agente: "Para a Consistência observada faltam 2 registros e 1 semana (hoje: 4 de 6 registros · 2 de 3 semanas). Para a Coerência observada falta 1 evidência confirmada (hoje: 4 de 5). Revisar as 2 sugestões do Diário resolve a Coerência." · chips: [Sugestões do Diário] [Como é calculado] · ação: "Revisar sugestões".
+- Conferência: 6 − 4 = 2 registros; 3 − 2 = 1 semana; 5 − 4 = 1 evidência; 4 + 2 = 6 ≥ 5.
+
 **Stepper do FocalCard — "Do score declarado ao observado"**
 - Diagnóstico ✓
 - Primeiro registro ✓
@@ -322,10 +358,10 @@ Próxima ação: "Revise as 2 sugestões do Diário" → botão de marca "Revisa
 
 | Use | Não use |
 |---|---|
-| Diário, registro, Daily Log | conversa, chat, mensagem |
+| Diário, registro, Daily Log | conversa, chat, mensagem (fora do painel do Agente) |
 | evidência, prova, link de prova | fonte acadêmica, DOI, referência ABNT |
 | Registrada, Documentada, Para revisar (níveis de evidência) · "Base declarada" (só como origem do score) | Declarada como nível de evidência, verificada (sem verificação), Básico / Intermediário / Avançado |
-| Persona Live, Argumentos reais, Rascunho sugerido | tutor, assistente que responde por você |
+| Persona Live, Argumentos reais, Rascunho sugerido · Agente Persona (experimental) | tutor, assistente que responde por você |
 | Artefato: Resposta STAR, Pitch pessoal, Currículo, Portfólio | carta de apresentação, produções |
 | Configurações | Perfil e plano, Pro, Premium, preço |
 | Entrar com Microsoft | cadastro, senha, recuperar senha |

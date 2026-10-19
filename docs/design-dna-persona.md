@@ -1,6 +1,6 @@
 # Design DNA — Persona Redesign (referência iStudio)
 
-> **Status:** v1.1 · 19/10/2026 (v1.0 de 18/10/2026, gerada com a skill `design-dna`) · v1.1 corrige a tradução da arquitetura (§1) e os componentes de chat (§4)
+> **Status:** v1.1 · 19/10/2026 (v1.0 de 18/10/2026, gerada com a skill `design-dna`) · v1.1 corrige a tradução da arquitetura (§1) e restringe o chat ao painel experimental do Agente (§4)
 > **Referência:** [Student Career Dashboard | UI/UX Design Case Study 2026 (Behance)](https://www.behance.net/gallery/257051775/Student-Career-Dashboard-UIUX-Design-Case-Study-2026)
 > **Decisões fixadas:** cores = paleta Persona (Indigo + Slate, D-026) · tipografia = da referência (Plus Jakarta Sans + Inter) · Geist/Geist Mono descontinuadas no redesign.
 
@@ -27,7 +27,7 @@ O problema do Persona atual não é a cor — é a arquitetura da informação: 
 | iCAT Journey (card escuro com stepper) | FocalCard "Do score declarado ao observado": Diagnóstico → Primeiro registro → 5 evidências confirmadas → Score observado |
 | Training / Skill sim | Diário (editor livre) e revisão das sugestões da IA |
 | Profile verificado | Biblioteca de Evidências (Registrada / Documentada) |
-| Messages | **Não se aplica**: o Persona não tem chat. O Persona Live usa painéis "Argumentos reais" + "Rascunho sugerido" |
+| Messages | Painel lateral **experimental** "Agente Persona" (protótipo de LD-026), com `Composer` + `MessageBubble`. Os fluxos validados não têm chat: o Persona Live usa os painéis "Argumentos reais" + "Rascunho sugerido" |
 | Resume builder com score ATS | Artefatos (Resposta STAR, Pitch, Currículo ATS, Portfólio) |
 | Career tools / Profile | Painel do Narrative Score (a partir do Início) · Configurações no rodapé |
 
@@ -79,7 +79,7 @@ Contrastes calculados por luminância relativa WCAG, sem arredondamento intermed
     "color": {
       "palette_type": "monochromatic com acentos semânticos (Indigo como única cor de marca; matizes semânticas só nos tiles de destino e estados)",
       "primary": { "hex": "#7C3AED", "role": "O único CTA por tela (gradiente #7C3AED → #6D28D9), passo ativo da jornada, item ativo da navegação" },
-      "secondary": { "hex": "#1A1726", "role": "Ink — texto principal e botão sólido (um por card). O Persona não tem chat nem balões de mensagem" },
+      "secondary": { "hex": "#1A1726", "role": "Ink — texto principal e botão sólido (um por card). também nos balões da pessoa no painel experimental do Agente" },
       "accent": { "hex": "#2E1A6B", "role": "Fim do gradiente do card escuro de jornada (Indigo 900) — apenas na superfície focal" },
       "neutral": {
         "scale": ["#FFFFFF", "#FAFAFC", "#F2F1F7", "#E4E2EE", "#C9C5D8", "#888291", "#6D5BA6", "#4F4866", "#2E2A3D", "#1A1726"],

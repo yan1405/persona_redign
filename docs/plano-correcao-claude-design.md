@@ -1,6 +1,6 @@
 # Plano de correção do Claude Design — Persona
 
-> **Versão:** 2.0 · 19/10/2026 (substitui a v1.0 da mesma data)
+> **Versão:** 2.1 · 19/10/2026 (substitui a v2.0 e a v1.0; a v2.1 acrescenta o painel experimental do Agente Persona)
 > **Projeto:** https://claude.ai/design/p/ff1a7bce-a6f2-4fa9-af99-a6196b748678
 > **Decisão vigente (Opção A):** o Persona continua sendo um SaaS de **narrativa profissional**. O kit "Persona Acadêmico" gerado pelo Claude Design foi um erro de escopo e deve ser substituído.
 > **Fontes da verdade, em ordem de precedência:**
@@ -19,7 +19,7 @@ A v1.0 foi escrita a partir do Design DNA, sem conferir os documentos aprovados 
 | Navegação | 6 destinos com "Narrative Score" e "Perfil e plano" | 5 destinos (Início, Diário, Evidências, **Persona Live**, Artefatos) + Configurações no rodapé; o Score abre em painel a partir do Início |
 | Persona Live | Ausente | Diferencial do produto: tela e componentes próprios |
 | Diário | Fluxo guiado de 4 passos | Editor livre "O que aconteceu hoje?"; a IA sugere e a pessoa confirma. Os passos guiados pertencem ao onboarding |
-| Chat | `Composer`/`MessageBubble` no gerador de artefatos | Nenhum chat: a IA atua por ações fechadas (Encurtar, Aprofundar…) |
+| Chat | `Composer`/`MessageBubble` no gerador de artefatos | Sem chat nos fluxos validados (ações fechadas no Live e nos Artefatos). A conversa fica só no **painel experimental do Agente Persona** (v2.1, decisão de Yan em 19/10/2026) |
 | Status da evidência | Declarada / Documentada | **Registrada** / Documentada; "Para revisar" é a sugestão ainda não confirmada |
 | Níveis de habilidade | Básico / Intermediário / Avançado (fictícios) | Não existem no produto. As competências são texto livre |
 | Score | (75 + 50 + 70) ÷ 3 = 65 | 0,6 × Coerência + 0,4 × Consistência = 0,6 × 75 + 0,4 × 50 = **65**; a Credibilidade fica fora do total ("Ainda não avaliada") |
@@ -60,7 +60,7 @@ A v1.0 foi escrita a partir do Design DNA, sem conferir os documentos aprovados 
 | # | Decisão | Justificativa |
 |---|---|---|
 | D1 | **Navegação:** Início · Diário · Evidências · Persona Live · Artefatos, mais Configurações no rodapé. O Narrative Score é uma faixa de KPIs no Início e abre em painel | `INFORMATION_ARCHITECTURE.md` §2 (aprovado) |
-| D2 | **Nenhum chat no produto.** `Composer` vira `CaptureEditor` (Diário); `MessageBubble` e o avatar de IA saem | Fase 7: "o Persona Live não usa bolhas de chat". Fase 8: "não haverá chat aberto no editor" |
+| D2 | **Chat só no painel experimental do Agente Persona** (F-21), que abre de qualquer tela. `Composer` e `MessageBubble` ficam restritos a ele; o Diário ganha um `CaptureEditor` próprio. Live e Artefatos continuam sem chat | Fase 7: "o Persona Live não usa bolhas de chat"; Fase 8: "não haverá chat aberto no editor". O painel prototipa o agente colaborativo aprovado em LD-026 sem alterar fluxos validados. Decisão de Yan, 19/10/2026 |
 | D3 | **Sem o mascote Xisto por enquanto**: ícones Lucide | Os arquivos-fonte do Xisto não existem fora do código. A decisão é provisória, sujeita a veto |
 | D4 | **Níveis de evidência:** Registrada (sem link) e Documentada (≥ 1 link). Validada e Certificada aparecem só como explicação "indisponível". "Para revisar" = sugestão não confirmada | Fase 5 e `PRODUCT_BRIEF.md` §5 |
 | D5 | **Competências em texto livre**, sem taxonomia e sem níveis de habilidade | A Fase 5 deixa a taxonomia global fora do escopo. Resolve a antiga pendência U0.4 |
@@ -76,9 +76,9 @@ A v1.0 foi escrita a partir do Design DNA, sem conferir os documentos aprovados 
 ```text
 REGRAS PERMANENTES DO PROJETO — valem para todo prompt seguinte.
 0. Fonte da verdade de produto: o anexo persona-fluxos-e-features.md (também em github.com/yan1405/persona_redign/docs). Em qualquer dúvida de fluxo, feature, texto ou dado, ele vence.
-1. Produto: Persona é uma plataforma de NARRATIVA PROFISSIONAL. Ciclo: Diário (texto livre) → sugestões da IA → a pessoa confirma → Evidência (Registrada ou Documentada) → Narrative Score explicável → ativação no Persona Live (argumentos reais + rascunho para entrevista) e nos Artefatos (Resposta STAR, Pitch pessoal, Currículo ATS, Portfólio). NÃO é plataforma acadêmica, de tutores, de chat nem de ABNT. Se aparecer algo disso, remova.
+1. Produto: Persona é uma plataforma de NARRATIVA PROFISSIONAL. Ciclo: Diário (texto livre) → sugestões da IA → a pessoa confirma → Evidência (Registrada ou Documentada) → Narrative Score explicável → ativação no Persona Live (argumentos reais + rascunho para entrevista) e nos Artefatos (Resposta STAR, Pitch pessoal, Currículo ATS, Portfólio). NÃO é plataforma acadêmica, de tutores nem de ABNT. Se aparecer algo disso, remova.
 2. Navegação: Início, Diário, Evidências, Persona Live, Artefatos; Configurações no rodapé. O Narrative Score fica no Início e abre em painel. Não crie outros destinos.
-3. Sem chat: nenhuma bolha de mensagem, nenhum campo de "pergunte à IA". A IA age por ações nomeadas (Encurtar, Aprofundar, Outra experiência, Adaptar ao objetivo, Gerar alternativa).
+3. Chat restrito: a conversa com IA existe SOMENTE no painel lateral "Agente Persona" (experimental), que abre pelo botão "Agente" no cabeçalho de qualquer tela. Diário, Evidências, Persona Live e Artefatos NÃO têm bolhas de mensagem: lá a IA age por ações nomeadas (Encurtar, Aprofundar, Outra experiência, Adaptar ao objetivo, Gerar alternativa). O agente só usa evidências registradas, cita a origem de cada afirmação e nunca salva nada sem confirmação.
 4. Visual: não altere nenhum token. Indigo + Slate, Plus Jakarta Sans + Inter, raios 16/22/28/pill, sombras Soft/Float/Slab. Sem laranja, sem emoji, sem ícones 3D, sem mascote.
 5. Hierarquia: no máximo UM botão de marca (gradiente Indigo) por tela e UM bloco focal escuro por tela. Botão Ink: no máximo um por card.
 6. Honestidade: nunca mostre conquista sem a evidência que a sustenta. Níveis: Registrada e Documentada; "Para revisar" para sugestões. Credibilidade = "Ainda não avaliada". Sem fato suficiente, mostre uma lacuna, nunca um texto genérico. Todo texto gerado aponta a evidência de origem.
@@ -98,7 +98,7 @@ Responda apenas "ok, regras registradas" e aguarde.
 |---|---|---|
 | U0.1 | No Claude Design, abra o Design System e clique em **"Remove as org default"**. Antes disso, no seletor de design system do projeto, fixe o próprio "Persona Design System" (não "Padrão da organização") | O aviso "Currently org default" desaparece e o projeto continua apontando para o Persona |
 | U0.2 | Anexe pelo botão **+** do chat o arquivo `persona-fluxos-e-features.md` (pasta `C:\Users\yansi\OneDrive\ref_redisgn_persona\docs\` ou repositório `docs/`). **Não anexe prints do app atual** | O arquivo aparece em `uploads/` |
-| U0.3 | Confirme ou vete as decisões D1–D7, sobretudo a **D3 (Xisto)** | Decisões anotadas |
+| U0.3 | Confirme ou vete as decisões D1–D7, sobretudo a **D3 (Xisto)**. A D2 (chat só no painel do Agente) já foi decidida por você em 19/10/2026 | Decisões anotadas |
 
 ---
 
@@ -119,14 +119,14 @@ Altere somente estas seções:
 2. Fontes: o repositório https://github.com/yan1405/persona_redign (docs/persona-fluxos-e-features.md = produto; docs/design-dna-persona.md = visual) e o case iStudio. Remova qualquer menção a prints do app atual.
 3. Content fundamentals: troque TODOS os exemplos acadêmicos. Use: "Bom dia, Yan." / "Hoje, de relance." / "Tudo o que sustenta a sua história." Linhas de status: "4 confirmadas · 2 para revisar", "Score 65 · base declarada", "1 sessão encerrada". CTAs: "Salvar registro", "Revisar sugestões", "Confirmar evidência", "Adicionar link de prova", "Iniciar sessão", "Novo Artefato". Lacuna: "Ainda não há evidência para sustentar esta resposta. Registre a situação no Diário." Erro calmo: "Não foi possível gerar sugestões agora — seu registro está salvo e você pode estruturar manualmente."
 4. Troque a frase sobre "honestidade acadêmica" por: "A honestidade é parte da voz: a IA sugere e você confirma. O Persona nunca inventa conquista, todo texto gerado cita a evidência de origem e o que não tem prova aparece como Registrada."
-5. Remova o parágrafo "The current brief extends it to a desktop conversation platform..." e a seção "Intentional additions" inteira (SourceCard, Switch para ABNT, MessageBubble AI).
-6. Remova "Yan Lima · Pedagogia · UFPE" e qualquer menção a ABNT, DOI, tutores, TCC, disciplinas, orientadora e conversa.
+5. Remova o parágrafo "The current brief extends it to a desktop conversation platform..." e reescreva a seção "Intentional additions": remova SourceCard e o Switch para ABNT; mantenha MessageBubble e Avatar do agente, descritos como "exclusivos do painel experimental Agente Persona (protótipo do agente colaborativo LD-026)".
+6. Remova "Yan Lima · Pedagogia · UFPE" e qualquer menção a ABNT, DOI, tutores, TCC, disciplinas e orientadora.
 
 Mantenha intactas as seções Visual foundations e Iconography. Mostre o texto final do Readme.
 ```
 
 **Critério de aceite:**
-- [ ] Nenhuma ocorrência de "Acadêmico", "tutor", "ABNT", "DOI", "TCC", "UFPE", "orientadora", "Lima" ou "conversa" no Readme.
+- [ ] Nenhuma ocorrência de "Acadêmico", "tutor", "ABNT", "DOI", "TCC", "UFPE", "orientadora" ou "Lima" no Readme; chat citado só como painel experimental do Agente.
 - [ ] O Readme cita o Persona Live e os quatro tipos de Artefato.
 - [ ] Visual foundations idêntico ao anterior.
 
@@ -134,7 +134,7 @@ Mantenha intactas as seções Visual foundations e Iconography. Mostre o texto f
 
 ```text
 Atualize três arquivos para o produto correto:
-1. SKILL.md: descrição, quando usar e regras de voz, sem nicho acadêmico e sem chat.
+1. SKILL.md: descrição, quando usar e regras de voz, sem nicho acadêmico; chat apenas no painel experimental do Agente Persona.
 2. github.md: fonte yan1405/persona_redign, branch main, arquivos docs/persona-fluxos-e-features.md e docs/design-dna-persona.md, data real desta sincronização e seção "Screen map" com as sete telas da seção 6 do anexo marcadas "em reconstrução". Não invente hash de commit.
 3. thumbnail.html: troque o exemplo acadêmico pelo Início do Persona (saudação, faixa de KPIs com 65, 4 tiles e o FocalCard), usando a massa de dados do anexo.
 Não altere tokens. Mostre o diff resumido de cada arquivo.
@@ -166,17 +166,17 @@ Em Badge e Chip, crie as variantes: Registrada (neutra, Slate), Documentada (suc
 
 **Critério de aceite:** as seis variantes aparecem com as razões calculadas, todas ≥ 4,5:1.
 
-### T2.3 — Remover o chat: EntryRow, CaptureEditor e remoções
+### T2.3 — Restringir o chat ao painel do Agente: EntryRow, CaptureEditor, Composer e MessageBubble
 
 ```text
 1. Renomeie ConversationRow para EntryRow: linha de data + título + metadado + status. Variantes: registro do Diário, sessão do Persona Live e versão de Artefato.
-2. Transforme Composer em CaptureEditor: o editor do Diário com o rótulo "O que aconteceu hoje?", contador (40 a 2.000 caracteres), data e contexto opcionais e botão de marca "Salvar registro". Sem chips de prompt e sem aparência de chat.
-3. Remova MessageBubble e Avatar variant="ai", e todas as importações. O Avatar fica só para pessoas.
+2. Crie o componente novo CaptureEditor: o editor do Diário com o rótulo "O que aconteceu hoje?", contador (40 a 2.000 caracteres), data e contexto opcionais e botão de marca "Salvar registro". Sem chips de prompt e sem aparência de chat.
+3. Mantenha Composer e MessageBubble, mas exclusivos do painel experimental "Agente Persona" (anexo, ficha 6.8). Composer: chips "O que falta para o score observado?", "Organize minhas evidências" e "Preparar uma entrevista"; botão de enviar Ink (não de marca); rodapé "O agente só usa as evidências que você registrou. Confira sempre a origem.". MessageBubble: pessoa em Ink; agente em branco, com chips de evidência citada e uma linha de ações ("Revisar sugestões", "Abrir no Persona Live"). Troque o Avatar variant="ai" pelo rótulo "Agente Persona" com selo "Experimental". Remova todos os chips e textos acadêmicos (ABNT, fontes, tutor).
 4. Mantenha Switch para as Configurações (lembrete, comunicações opcionais).
 Atualize os @dsCards e a lista de componentes do Readme.
 ```
 
-**Critério de aceite:** busca por `MessageBubble`, `ConversationRow` e `Composer` = zero; o `CaptureEditor` não parece um chat.
+**Critério de aceite:** busca por `ConversationRow` = zero; `Composer` e `MessageBubble` importados **só** pelo painel do Agente; o `CaptureEditor` não parece um chat.
 
 ### T2.4 — Novos componentes do Persona
 
@@ -303,6 +303,14 @@ Crie a tela Configurações seguindo a ficha 6.7: navegação secundária com Pe
 
 **Critério de aceite:** nenhuma menção a plano ou preço; exclusão com confirmação forte.
 
+### T4.8 — Painel do Agente Persona (experimental)
+
+```text
+Crie o painel lateral "Agente Persona" seguindo a ficha 6.8 e o fluxo 8 do anexo. Ele abre pelo botão "Agente" (IconButton) no cabeçalho do shell, em qualquer tela, sobre o conteúdo (400–440 px, sombra Float, raio 28), com selo "Experimental" e botão de fechar. Use Composer e MessageBubble com a conversa-exemplo da seção 10 do anexo, incluindo chips de evidência citada e a ação "Revisar sugestões". Mostre os estados: vazio (com 3 chips), respondendo, resposta com citações, sem evidência (lacuna + "Registrar no Diário") e falha ("Não consegui responder agora. Nada foi alterado."). O botão de enviar é Ink: o painel não pode ter botão de marca. O painel não substitui Persona Live nem Artefatos: quando o assunto for entrevista ou material, ofereça "Abrir no Persona Live" ou "Criar Artefato". Mostre o painel aberto sobre o Início e sobre Evidências.
+```
+
+**Critério de aceite:** toda afirmação do agente cita uma evidência ou declara a lacuna; selo "Experimental" visível; nenhum botão de marca no painel; os números batem com a massa de dados (faltam 2 registros, 1 semana e 1 evidência).
+
 ---
 
 ## Etapa 5 — Responsivo, estados e acessibilidade
@@ -349,7 +357,7 @@ Audite as sete telas: contraste mínimo de 4,5:1 para texto normal e 3:1 para te
 
 ```text
 Prompt T6.1/T6.2 (colar junto):
-Finalize o projeto: (1) atualize Readme, github.md e miniatura com o estado final, incluindo o Screen map real; (2) apague ui_kits/academico e qualquer componente que ninguém mais importe, listando o que foi removido; (3) busque em todo o projeto: acadêmico, tutor, ABNT, DOI, TCC, UFPE, orientadora, disciplina, fichamento, Lima, conversa, MessageBubble, carta de apresentação, Premium, "Perfil e plano", "R$", Básico, Intermediário, Avançado. Mostre o resultado, que deve ser zero. Busque também "Declarada" usada como nível de evidência: deve ser zero (o termo só é permitido como origem do score, em "Base declarada").
+Finalize o projeto: (1) atualize Readme, github.md e miniatura com o estado final, incluindo o Screen map real; (2) apague ui_kits/academico e qualquer componente que ninguém mais importe, listando o que foi removido; (3) busque em todo o projeto: acadêmico, tutor, ABNT, DOI, TCC, UFPE, orientadora, disciplina, fichamento, Lima, carta de apresentação, Premium, "Perfil e plano", "R$", Básico, Intermediário, Avançado. Mostre o resultado, que deve ser zero. Liste também onde Composer e MessageBubble são importados: só o painel do Agente pode aparecer. Busque também "Declarada" usada como nível de evidência: deve ser zero (o termo só é permitido como origem do score, em "Base declarada").
 ```
 
 ---
@@ -371,8 +379,8 @@ Peça depois da Etapa 6, uma por prompt, nesta ordem:
 
 ## Definição de pronto (checklist final)
 
-- [ ] Nenhuma menção ao nicho acadêmico, a chat, a planos e preços ou a carta de apresentação.
-- [ ] Sete telas no kit (Início, Diário, Evidências, Persona Live, Artefatos, painel do Score, Configurações), sem placeholder.
+- [ ] Nenhuma menção ao nicho acadêmico, a planos e preços ou a carta de apresentação; chat somente no painel experimental do Agente.
+- [ ] Sete telas no kit (Início, Diário, Evidências, Persona Live, Artefatos, painel do Score, Configurações) mais o painel experimental do Agente, sem placeholder.
 - [ ] Navegação com cinco destinos mais Configurações.
 - [ ] Cada tela tem exatamente um botão de marca e no máximo um bloco focal escuro.
 - [ ] O Persona Live mostra Argumentos reais e Rascunho separados, com a evidência citada.

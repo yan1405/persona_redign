@@ -1,6 +1,6 @@
 # Design DNA — Persona Redesign (referência iStudio)
 
-> **Status:** v1.0 · 18/10/2026 · gerado com a skill `design-dna` (Fase 2 — análise)
+> **Status:** v1.1 · 19/10/2026 (v1.0 de 18/10/2026, gerada com a skill `design-dna`) · v1.1 corrige a tradução da arquitetura (§1) e os componentes de chat (§4)
 > **Referência:** [Student Career Dashboard | UI/UX Design Case Study 2026 (Behance)](https://www.behance.net/gallery/257051775/Student-Career-Dashboard-UIUX-Design-Case-Study-2026)
 > **Decisões fixadas:** cores = paleta Persona (Indigo + Slate, D-026) · tipografia = da referência (Plus Jakarta Sans + Inter) · Geist/Geist Mono descontinuadas no redesign.
 
@@ -13,20 +13,23 @@ As imagens da referência **não** são versionadas neste repositório (obra de 
 O problema do Persona atual não é a cor — é a arquitetura da informação: o Início é um relatório (score gigante + contadores zerados) e a Biblioteca é uma tabela com seis filtros, padrão de painel administrativo. A referência resolve exatamente isso:
 
 - **"Today, at a glance"** — a primeira tela responde *"o que faço agora?"*.
-- **"Six destinations. One shell."** — seis destinos, cada um com uma única linha viva de status.
+- **"Destinations. One shell."** — poucos destinos, cada um com uma única linha viva de status.
 - **"Verified by the platform, owned by the student"** — mesmo modelo das evidências confirmadas do Persona.
 - **"Calm, on purpose"** — cor apenas onde há informação (presença, contagem, CTA).
 
 ### Tradução da arquitetura para o Persona
 
+> **Corrigido em 19/10/2026 (v1.1).** A v1.0 desta tabela mapeava seis destinos, "Perfil e plano" e "carta de apresentação", em desacordo com o produto aprovado. Produto, navegação e features seguem [`persona-fluxos-e-features.md`](persona-fluxos-e-features.md); este arquivo governa só o visual.
+
 | Referência (iStudio) | Persona |
 |---|---|
-| Home — tiles de destino | Início — "Bom dia, Yan" + 6 destinos |
-| iCAT Journey (card escuro com stepper) | Jornada narrativa: Diagnóstico → Registros → Evidências → Score → Artefato |
-| Training / Skill sim | Registro diário (Daily Log) |
-| Profile verificado | Biblioteca de evidências |
-| Resume builder com score ATS | Gerador de artefatos (STAR, pitch, carta) + Narrative Score |
-| Career tools / Profile | Score detalhado · Perfil e plano |
+| Home — tiles de destino | Início — "Bom dia, Yan", faixa de KPIs do Narrative Score e 4 tiles (Diário, Evidências, Persona Live, Artefatos) |
+| iCAT Journey (card escuro com stepper) | FocalCard "Do score declarado ao observado": Diagnóstico → Primeiro registro → 5 evidências confirmadas → Score observado |
+| Training / Skill sim | Diário (editor livre) e revisão das sugestões da IA |
+| Profile verificado | Biblioteca de Evidências (Registrada / Documentada) |
+| Messages | **Não se aplica**: o Persona não tem chat. O Persona Live usa painéis "Argumentos reais" + "Rascunho sugerido" |
+| Resume builder com score ATS | Artefatos (Resposta STAR, Pitch, Currículo ATS, Portfólio) |
+| Career tools / Profile | Painel do Narrative Score (a partir do Início) · Configurações no rodapé |
 
 ---
 
@@ -76,7 +79,7 @@ Contrastes calculados por luminância relativa WCAG, sem arredondamento intermed
     "color": {
       "palette_type": "monochromatic com acentos semânticos (Indigo como única cor de marca; matizes semânticas só nos tiles de destino e estados)",
       "primary": { "hex": "#7C3AED", "role": "O único CTA por tela (gradiente #7C3AED → #6D28D9), passo ativo da jornada, item ativo da navegação" },
-      "secondary": { "hex": "#1A1726", "role": "Ink — texto principal, botão sólido (um por card), balões de mensagem do usuário" },
+      "secondary": { "hex": "#1A1726", "role": "Ink — texto principal e botão sólido (um por card). O Persona não tem chat nem balões de mensagem" },
       "accent": { "hex": "#2E1A6B", "role": "Fim do gradiente do card escuro de jornada (Indigo 900) — apenas na superfície focal" },
       "neutral": {
         "scale": ["#FFFFFF", "#FAFAFC", "#F2F1F7", "#E4E2EE", "#C9C5D8", "#888291", "#6D5BA6", "#4F4866", "#2E2A3D", "#1A1726"],
@@ -122,7 +125,7 @@ Contrastes calculados por luminância relativa WCAG, sem arredondamento intermed
     "layout": {
       "grid_system": "App shell de duas colunas: sidebar flutuante + painel principal, ambos como cards brancos sobre o fundo F2F1F7 com 16px de respiro",
       "max_content_width": "1280px (painel principal)",
-      "columns": "12 colunas; linha de 6 tiles de destino (2 colunas no mobile com swipe)",
+      "columns": "12 colunas; linha de 4 tiles de destino (2 × 2 abaixo de 900 px de painel)",
       "gutter": "16px",
       "breakpoints": ["360px", "375px", "768px", "1024px", "1280px", "1440px"],
       "alignment_tendency": "strict grid"
@@ -142,7 +145,7 @@ Contrastes calculados por luminância relativa WCAG, sem arredondamento intermed
       "depth_cues": "Sombras suaves, cards brancos sobre fundo tingido, glow do CTA de marca (0 8px 20px -6px rgb(124 58 237 / 0.45))"
     },
     "iconography": {
-      "style": "Outline linear na navegação; ilustração própria (Xisto ou set autoral) apenas dentro dos tiles de destino",
+      "style": "Outline linear (Lucide) na navegação e nos tiles de destino. Xisto suspenso no redesign até existirem arquivos-fonte (decisão D3 do plano de correção)",
       "stroke_weight": "1.75px",
       "size_scale": ["16px", "18px", "20px", "24px"],
       "preferred_set": "Lucide"
@@ -158,9 +161,9 @@ Contrastes calculados por luminância relativa WCAG, sem arredondamento intermed
       "button_style": "Todos pill. Brand: gradiente Indigo com glow, um por tela. Solid: Ink #1A1726, um por card. Outline: borda E4E2EE. Ghost: só texto.",
       "input_style": "Busca em pill branca com ícone à esquerda; campos raio 16px, borda 1px E4E2EE, foco com anel 2px #A78BFA",
       "card_style": "Branco, raio 22–28px, sombra Soft; tiles de destino com fundo pastel semântico, raio 22px, título + uma 'linha viva' de status + seta ↗ + ilustração no canto",
-      "navigation_pattern": "Sidebar com logo, ícone + rótulo, item ativo em pill #ECEAFB; card de 'continuar' fixado no rodapé. Mobile: drawer + tab bar inferior.",
+      "navigation_pattern": "Sidebar com logo, ícone + rótulo, item ativo em pill #ECEAFB; card de 'continuar' e Configurações fixados no rodapé. Desktop-first: rail em 768 px e drawer abaixo disso, sem tab bar (não há app mobile dedicado nesta fase).",
       "modal_style": "Painel flutuante ancorado, raio 28px, sombra Float, sem overlay escuro pesado",
-      "list_style": "Linhas com avatar/monograma, título 15/600, prévia 13/400, horário à direita, badge de contagem na cor de marca",
+      "list_style": "Linhas (EntryRow, EvidenceCard variante linha, ArtifactRow): título 15/600, metadado 13/400, status em badge, data à direita; divisor 1px #E4E2EE",
       "component_notes": "Stepper de jornada com nós circulares: concluído / ativo (anel + glow) / bloqueado (cadeado). Chips de verificação ('✓ 3 evidências'). Badge 'Aberto agora' com ponto verde."
     }
   },
@@ -191,7 +194,7 @@ Contrastes calculados por luminância relativa WCAG, sem arredondamento intermed
     },
     "imagery": {
       "photo_treatment": "Somente avatares circulares",
-      "illustration_style": "Substituir os objetos 3D 'clay' da referência pelo mascote Xisto ou ícones autorais",
+      "illustration_style": "Substituir os objetos 3D 'clay' da referência por ícones Lucide em quadrado suave (Xisto só quando houver arquivos-fonte)",
       "graphic_elements": "Barras de progresso finas, anéis de score, nós de stepper, pontos de presença",
       "pattern_usage": "Nenhum no produto",
       "image_shape": "Círculo (avatares) e retângulo arredondado"
@@ -238,6 +241,6 @@ Contrastes calculados por luminância relativa WCAG, sem arredondamento intermed
 ## 5. Ressalvas críticas
 
 1. **Risco de monotonia cromática.** A referência funciona por contraste de temperatura (laranja quente × papel neutro × roxo frio). No Persona, primário e neutros têm o mesmo matiz violeta → tende a ficar "tudo lavanda". Mitigação: tiles de destino com tons semânticos e Indigo restrito ao CTA e ao passo ativo. Se ainda ficar chapado, a correção é um neutro quente — não uma segunda cor de marca.
-2. **Ícones 3D genéricos.** Os objetos "clay" da referência são o elemento mais "template". No Persona, substituir pelo Xisto ou set autoral.
+2. **Ícones 3D genéricos.** Os objetos "clay" da referência são o elemento mais "template". No Persona, substituir por ícones Lucide; o Xisto volta só quando houver arquivos-fonte (decisão D3).
 3. **Verde com texto branco reprova AA** (2,5367:1). Badges de sucesso usam `#064E3B` sobre `#ECFDF5`.
 4. **Inter é a fonte mais genérica do mercado.** Mantida por fidelidade à referência (decisão de 18/10/2026); reavaliar se o resultado parecer genérico.

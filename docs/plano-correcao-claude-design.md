@@ -82,7 +82,7 @@ A v1.0 foi escrita a partir do Design DNA, sem conferir os documentos aprovados 
 |---|---|---|
 | D1 | **Navegação:** Início · Diário · Evidências · Persona Live · Artefatos, mais Configurações no rodapé, mais o Agente Persona presente em todas as telas. O Narrative Score é uma faixa de KPIs no Início e abre em painel flutuante | `INFORMATION_ARCHITECTURE.md` §2 (aprovado) |
 | D2 | **Agente no centro, sem CRM.** O Agente Persona é o eixo: campo "Buscar ou perguntar" no Início e painel acoplado em todas as telas. `Composer` e `MessageBubble` pertencem a ele; o Diário tem `CaptureEditor` próprio. Dentro do Live e dos Artefatos a IA age por ações nomeadas, sem bolhas de chat. Listas viram cards, detalhes viram painéis flutuantes com seções e não há abas | Decisão de Yan, 19/10/2026 ("não estamos montando um CRM e sim uma plataforma com agente de AI"). Divergência consciente das Fases 7 e 8 (ver acima) |
-| D3 | **Sem o mascote Xisto por enquanto**: ícones Lucide | Os arquivos-fonte do Xisto não existem fora do código. A decisão é provisória, sujeita a veto |
+| D3 | **Sem o mascote Xisto**: só ícones Lucide | Decisão de Yan, 19/10/2026: o Xisto fica fora do redesign |
 | D4 | **Níveis de evidência:** Registrada (sem link) e Documentada (≥ 1 link). Validada e Certificada aparecem só como explicação "indisponível". "Para revisar" = sugestão não confirmada | Fase 5 e `PRODUCT_BRIEF.md` §5 |
 | D5 | **Competências em texto livre**, sem taxonomia e sem níveis de habilidade | A Fase 5 deixa a taxonomia global fora do escopo. Resolve a antiga pendência U0.4 |
 | D6 | **Tokens visuais permanecem** (cores, fontes, raios, sombras) | O resultado visual foi aprovado; o erro é de conteúdo e de layout |
@@ -122,7 +122,7 @@ Estas regras SUBSTITUEM qualquer versão anterior. Responda apenas "ok, regras r
 |---|---|---|
 | U0.1 | No Claude Design, abra o Design System e clique em **"Remove as org default"**. Antes disso, no seletor de design system do projeto, fixe o próprio "Persona Design System" (não "Padrão da organização") | O aviso "Currently org default" desaparece e o projeto continua apontando para o Persona |
 | U0.2 | Anexe pelo botão **+** do chat o arquivo `persona-fluxos-e-features.md` (pasta `C:\Users\yansi\OneDrive\ref_redisgn_persona\docs\` ou repositório `docs/`). **Não anexe prints do app atual** | O arquivo aparece em `uploads/` |
-| U0.3 | Confirme ou vete as decisões D1–D7, sobretudo a **D3 (Xisto)**. A D2 (agente no centro, sem CRM) já foi decidida por você em 19/10/2026 | Decisões anotadas |
+| U0.3 | Confirme ou vete as decisões D1–D7, (a D3, Xisto fora, já foi decidida). A D2 (agente no centro, sem CRM) já foi decidida por você em 19/10/2026 | Decisões anotadas |
 
 ---
 
@@ -162,7 +162,7 @@ Na entrega da T1.2, o Claude Design deixou "(sem alterações)" no lugar de Visu
 ```text
 Corrija o Readme do design system. Não altere tokens nem componentes.
 1. Visual foundations: escreva a seção por completo (cores, tipografia, raios, sombras, espaçamento, movimento, contraste e regras de hierarquia: um botão de marca e um bloco focal escuro por tela, Ink no máximo um por card), com base em styles.css e em docs/design-dna-persona.md. Nunca use "sem alterações" ou qualquer placeholder. Troque "Six destination tiles" por "Four destination tiles", "user's chat bubbles" por "the person's bubbles in the Agente Persona" e acrescente: cards em grade de 2–3 colunas, painéis flutuantes de 560–640 px, seções com índice de âncoras e nenhuma aba.
-2. Iconography: escreva a seção por completo (Lucide, traço 1.75, tamanhos, uso em tiles e navegação). Remova o mascote Xisto: ele está suspenso até existirem arquivos-fonte; use apenas ícones Lucide.
+2. Iconography: escreva a seção por completo (Lucide, traço 1.75, tamanhos, uso em tiles e navegação). Remova o mascote Xisto: ele está fora do redesign (decisão de Yan).
 3. Index: liste o que existe hoje (styles.css, fonts/, assets/, guidelines/, components/, SKILL.md, github.md, thumbnail.html) e marque ui_kits/academico/ como "legado — será removido na T6.2", SourceCard e a pasta chat/ como "serão renomeados/reorganizados nas T2.1 e T2.3". Sem "(sem alterações)".
 4. Em "Components", descreva o estado atual e o previsto: EvidenceCard, EntryCard, ArtifactCard, AgentPrompt, AgentPanel, FloatingPanel, SectionIndex.
 Mostre o texto final do Readme.

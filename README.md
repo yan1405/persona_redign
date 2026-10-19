@@ -29,7 +29,7 @@ A pasta local espelha `docs/` e guarda material que **não** é versionado aqui:
 - **Referência estrutural:** [Student Career Dashboard — iStudio (Behance)](https://www.behance.net/gallery/257051775/Student-Career-Dashboard-UIUX-Design-Case-Study-2026). As imagens de terceiros não são versionadas aqui.
 - **Agente no centro, sem CRM** (decisão de Yan, 19/10/2026): o Agente Persona é o eixo (campo "Buscar ou perguntar" no Início e painel acoplado em todas as telas). Listas são **cards**, detalhes são **painéis flutuantes com seções** e não há abas. Dentro do Persona Live e dos Artefatos a IA age por ações nomeadas, sem chat. O agente (LD-026) **não está implementado** no app e os contratos das Fases 7 e 8 não preveem chat aberto: este redesign é um protótipo de direção.
 - **Fora do escopo:** planos e preços, paywall, carta de apresentação, cadastro/senha (entrada só com Microsoft), upload de arquivo, áudio.
-- **Mascote Xisto:** suspenso no redesign até existirem arquivos-fonte (D3, sujeita a veto).
+- **Mascote Xisto:** **fora do redesign** (D3 confirmada por Yan em 19/10/2026). Só ícones Lucide.
 - **Ferramentas de geração:** Claude Design (projeto `ff1a7bce-a6f2-4fa9-af99-a6196b748678`) e Google Stitch.
 
 ## Histórico

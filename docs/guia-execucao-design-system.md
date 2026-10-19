@@ -94,4 +94,4 @@ Depois dessa mensagem, **nenhuma ação** até a resposta de Yan.
 
 - **Etapa 0** (manual) e **Etapa 1** (escopo): já estão no plano.
 - **Etapa 4** (telas), **5** (responsivo e acessibilidade) e **6** (fechamento): guia próprio depois do "ok" da Etapa 3.
-- **Decisão pendente D3 (mascote Xisto):** suspenso até existirem arquivos-fonte.
+- **Mascote Xisto (D3):** fora do redesign, decisão de Yan em 19/10/2026. Só ícones Lucide.

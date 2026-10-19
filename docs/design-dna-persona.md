@@ -145,7 +145,7 @@ Contrastes calculados por luminância relativa WCAG, sem arredondamento intermed
       "depth_cues": "Sombras suaves, cards brancos sobre fundo tingido, glow do CTA de marca (0 8px 20px -6px rgb(124 58 237 / 0.45))"
     },
     "iconography": {
-      "style": "Outline linear (Lucide) na navegação e nos tiles de destino. Xisto suspenso no redesign até existirem arquivos-fonte (decisão D3 do plano de correção)",
+      "style": "Outline linear (Lucide) na navegação e nos tiles de destino. Sem mascote: o Xisto está fora do redesign (decisão D3, confirmada em 19/10/2026)",
       "stroke_weight": "1.75px",
       "size_scale": ["16px", "18px", "20px", "24px"],
       "preferred_set": "Lucide"
@@ -194,7 +194,7 @@ Contrastes calculados por luminância relativa WCAG, sem arredondamento intermed
     },
     "imagery": {
       "photo_treatment": "Somente avatares circulares",
-      "illustration_style": "Substituir os objetos 3D 'clay' da referência por ícones Lucide em quadrado suave (Xisto só quando houver arquivos-fonte)",
+      "illustration_style": "Substituir os objetos 3D 'clay' da referência por ícones Lucide em quadrado suave (sem mascote; o Xisto está fora do redesign)",
       "graphic_elements": "Barras de progresso finas, anéis de score, nós de stepper, pontos de presença",
       "pattern_usage": "Nenhum no produto",
       "image_shape": "Círculo (avatares) e retângulo arredondado"
@@ -241,6 +241,6 @@ Contrastes calculados por luminância relativa WCAG, sem arredondamento intermed
 ## 5. Ressalvas críticas
 
 1. **Risco de monotonia cromática.** A referência funciona por contraste de temperatura (laranja quente × papel neutro × roxo frio). No Persona, primário e neutros têm o mesmo matiz violeta → tende a ficar "tudo lavanda". Mitigação: tiles de destino com tons semânticos e Indigo restrito ao CTA e ao passo ativo. Se ainda ficar chapado, a correção é um neutro quente — não uma segunda cor de marca.
-2. **Ícones 3D genéricos.** Os objetos "clay" da referência são o elemento mais "template". No Persona, substituir por ícones Lucide; o Xisto volta só quando houver arquivos-fonte (decisão D3).
+2. **Ícones 3D genéricos.** Os objetos "clay" da referência são o elemento mais "template". No Persona, substituir por ícones Lucide; o Xisto está fora do redesign (decisão D3).
 3. **Verde com texto branco reprova AA** (2,5367:1). Badges de sucesso usam `#064E3B` sobre `#ECFDF5`.
 4. **Inter é a fonte mais genérica do mercado.** Mantida por fidelidade à referência (decisão de 18/10/2026); reavaliar se o resultado parecer genérico.
